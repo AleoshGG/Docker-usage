@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  # Servicio de la Base de Datos
+  database:
+    build:
+      context: ./Database
+    container_name: db-alexis
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234567
+      POSTGRES_DB: alexis
+    ports:
+      - "5000:5432" # Expone el puerto 5000 en el host
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - local-network
+
+  # Servicio de tu API
+  api:
+    build:
+      context: ./demomicroservices # Construye la imagen desde el Dockerfile en este directorio
+    container_name: api-alexis
+    ports:
+      - "8080:8080"
+    networks:
+      - local-network
+    depends_on:
+      - database # Le dice a Docker que inicie la BD primero
+
+# Define la red
+networks:
+  local-network:
+    driver: bridge
+
+volumes:
+  postgres-data:
