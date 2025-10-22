@@ -3,6 +3,7 @@ package com.alexis.demomicroservices.students.controllers;
 import com.alexis.demomicroservices.core.dtos.response.BaseResponse;
 import com.alexis.demomicroservices.students.data.dtos.request.CreateStudentDto;
 import com.alexis.demomicroservices.students.data.dtos.request.UpdateStudentDto;
+import com.alexis.demomicroservices.students.data.dtos.response.AuthorResponseDto;
 import com.alexis.demomicroservices.students.data.dtos.response.StudentResponseDto;
 import com.alexis.demomicroservices.students.services.IStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,14 @@ public class StudentsController {
                 true, students, "Recuperación exitosa", HttpStatus.OK
         );
 
+        return res.buildResponseEntity();
+    }
+
+    @GetMapping(path = "/guzman")
+    public ResponseEntity<BaseResponse<AuthorResponseDto>> getAuthor() {
+        BaseResponse<AuthorResponseDto> res = new BaseResponse<>(
+                true, new AuthorResponseDto(), "Recuperación exitosa", HttpStatus.OK
+        );
         return res.buildResponseEntity();
     }
 
