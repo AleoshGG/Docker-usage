@@ -1,0 +1,31 @@
+<mat-form-field>
+  <mat-label>Nombre completo</mat-label>
+  <input matInput [(ngModel)]="student.name" />
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Universidad</mat-label>
+  <input matInput [(ngModel)]="student.university" />
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Email</mat-label>
+  <input type="email" placeholder="example@example.com" matInput [(ngModel)]="student.email" />
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Estado del estudiante</mat-label>
+  <mat-select [(ngModel)]="student.active">
+    <mat-option value="true">Activo</mat-option>
+    <mat-option value="false">Inactivo</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<button
+  matButton="elevated"
+  [disabled]="isInvalid || isSaving" disabledInteractive
+  matTooltip="Guarda la información en la base de datos"
+  (click)="onSave()"
+>
+  Guardar
+</button>
