@@ -1,0 +1,63 @@
+/* Structure */
+.example-container {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.example-table-container {
+  position: relative;
+  min-height: 200px;
+  max-height: 400px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-mdc-row:hover {
+  background-color: var(--secondary-color);
+}
+
+.mat-mdc-fab.mat-sm {
+  width: 32px;
+  height: 32px;
+}
+
+.example-loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-rate-limit-reached {
+  max-width: 360px;
+  text-align: center;
+}
+
+/* Column Widths */
+.mat-column-number,
+.mat-column-state {
+  width: 64px;
+}
+
+.mat-column-created {
+  width: 124px;
+}
+
+.example-button-row {
+  max-width: 600px;
+}
+
+.example-button-row .mat-mdc-button-base {
+  margin: 8px 8px 8px 0;
+}

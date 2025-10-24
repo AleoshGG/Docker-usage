@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Student } from '../features/student/pages/student/student';
+import { StudentComponent } from '../features/student/pages/student/student';
 
 @Component({
   selector: 'app-layout',
-  imports: [Student],
+  imports: [StudentComponent],
   templateUrl: './layout.html',
   styleUrl: './layout.css'
 })

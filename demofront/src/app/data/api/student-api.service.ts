@@ -34,13 +34,13 @@ export class StudentApiService extends IStudentRepository {
 
   override updateStudent(student: Student): Observable<Student> {
     return this.http
-      .post<StudentBaseResponseDto<Student>>(`${this.url}/students`, student)
+      .put<StudentBaseResponseDto<Student>>(`${this.url}/students`, student)
       .pipe(map((res) => res.data));
   }
 
   override deleteStudent(id: string): Observable<boolean> {
     return this.http
-      .delete<StudentBaseResponseDto<boolean>>(`${this.url}/student?id=${id}`)
+      .delete<StudentBaseResponseDto<boolean>>(`${this.url}/students?id=${id}`)
       .pipe(map((res) => res.success));
   }
 }

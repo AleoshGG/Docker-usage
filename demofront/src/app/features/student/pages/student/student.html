@@ -1,3 +1,8 @@
-<h2>App creada por: {{ name }}</h2>
-<h1>Registro de estudiantes</h1>
-<app-student-form></app-student-form>
+<div class="container">
+  <div class="header">
+    <h2>App creada por: {{ name }}</h2>
+    <h1>Registro de estudiantes</h1>
+  </div>
+  <app-student-form [student]="selectedStudent"></app-student-form>
+  <app-table (saveSuccess)="onSelectedStudentEdit($event)"></app-table>
+</div>
