@@ -29,6 +29,17 @@ services:
     depends_on:
       - database # Le dice a Docker que inicie la BD primero
 
+  frontend:
+    build:
+      context: ./demofront 
+    container_name: fe-alexis
+    ports:
+      - "3000:3000" # Expone el puerto 3000 
+    networks:
+      - local-network
+    depends_on:
+      - api # Inicia después de la API
+
 # Define la red
 networks:
   local-network:
